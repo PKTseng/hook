@@ -1,18 +1,13 @@
-import { useState, useEffect } from 'react'
+import useLocalStorage from './hook/localStorage.jsx'
 
 function App() {
-  const [count, addCount] = useState(0)
-
-  useEffect(() => {
-    document.title = `${count}`
-  })
+  const [msg, setMsg] = useLocalStorage('key', 'test')
 
   return (
-    <>
-      <h1>{count}</h1>
-      <h1>{name}</h1>
-      <button onClick={() => addCount(count + 1)}>addCount</button>
-    </>
+    <div>
+      <h1>{msg}</h1>
+      <input onChange={() => setMsg('user')}></input>
+    </div>
   )
 }
 
