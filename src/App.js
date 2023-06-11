@@ -1,18 +1,12 @@
-import { useState, useEffect } from 'react'
+import useWindowScroll from './hook/scroll.jsx'
 
 function App() {
-  const [count, addCount] = useState(0)
-
-  useEffect(() => {
-    document.title = `${count}`
-  })
+  const scrollY = useWindowScroll()
 
   return (
-    <>
-      <h1>{count}</h1>
-      <h1>{name}</h1>
-      <button onClick={() => addCount(count + 1)}>addCount</button>
-    </>
+    <div style={{ height: '1200px' }}>
+      <h1>{scrollY}</h1>
+    </div>
   )
 }
 
