@@ -1,11 +1,12 @@
-import useWindowScroll from './hook/scroll.jsx'
+import useLocalStorage from './hook/localStorage.jsx'
 
 function App() {
-  const scrollY = useWindowScroll()
+  const [msg, setMsg] = useLocalStorage('key', 'test')
 
   return (
-    <div style={{ height: '1200px' }}>
-      <h1>{scrollY}</h1>
+    <div>
+      <h1>{msg}</h1>
+      <input onChange={() => setMsg('user')}></input>
     </div>
   )
 }
